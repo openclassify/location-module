@@ -112,7 +112,7 @@ class AjaxController extends PublicController
 
         if ($repository->getModel()->isTranslatedAttribute($sorting_column)) {
             return $repository->getByEntryIDsAndOrderByTransCol(
-                $query->pluck('id')->all(),
+                $query->get()->pluck('id')->all(),
                 $sorting_column,
                 $sorting_type
             );
