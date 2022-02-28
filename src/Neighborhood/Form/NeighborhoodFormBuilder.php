@@ -35,4 +35,9 @@ class NeighborhoodFormBuilder extends FormBuilder
 
         return $this;
     }
+
+    protected $options = [
+        'wrapper_view' => 'visiosoft.module.location::admin.form.new-location'
+    ];
+
 }
