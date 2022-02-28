@@ -52,7 +52,8 @@ class AjaxController extends PublicController
             $query = $this->cityRepository->getModel()->whereIn('parent_country_id', $id);
 
             if ($this->request->search) {
-                $query->where('name', 'like', '%' . $this->request->search . '%');
+                $query->leftJoin('location_cities_translations', 'location_cities.id', '=', 'location_cities_translations.entry_id')
+                    ->where('location_cities_translations.name', 'like', '%' . $this->request->search . '%');
             }
 
             return $this->queryOrder($query, $this->cityRepository);
