@@ -2,12 +2,16 @@
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Anomaly\Streams\Platform\Model\Location\LocationCitiesEntryModel;
+use Anomaly\Streams\Platform\Model\Location\LocationCountriesEntryModel;
 use Anomaly\Streams\Platform\Model\Location\LocationDistrictsEntryModel;
 use Anomaly\Streams\Platform\Model\Location\LocationNeighborhoodsEntryModel;
 use Anomaly\Streams\Platform\Model\Location\LocationVillageEntryModel;
 use Visiosoft\LocationModule\City\CityModel;
 use Visiosoft\LocationModule\City\CityRepository;
 use Visiosoft\LocationModule\City\Contract\CityRepositoryInterface;
+use Visiosoft\LocationModule\Country\CountryModel;
+use Visiosoft\LocationModule\Country\Contract\CountryRepositoryInterface;
+use Visiosoft\LocationModule\Country\CountryRepository;
 use Visiosoft\LocationModule\City\Events\DeletedCities;
 use Visiosoft\LocationModule\Country\Events\DeletedCountry;
 use Visiosoft\LocationModule\District\Contract\DistrictRepositoryInterface;
@@ -21,8 +25,6 @@ use Visiosoft\LocationModule\Neighborhood\NeighborhoodRepository;
 use Visiosoft\LocationModule\Village\Contract\VillageRepositoryInterface;
 use Visiosoft\LocationModule\Village\VillageRepository;
 use Visiosoft\LocationModule\Village\VillageModel;
-use Visiosoft\LocationModule\Country\Contract\CountryRepositoryInterface;
-use Visiosoft\LocationModule\Country\CountryRepository;
 
 class LocationModuleServiceProvider extends AddonServiceProvider
 {
@@ -76,6 +78,7 @@ class LocationModuleServiceProvider extends AddonServiceProvider
     ];
 
     protected $bindings = [
+        LocationCountriesEntryModel::class => CountryModel::class,
         LocationCitiesEntryModel::class => CityModel::class,
         LocationDistrictsEntryModel::class => DistrictModel::class,
         LocationNeighborhoodsEntryModel::class => NeighborhoodModel::class,
