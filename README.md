@@ -10,6 +10,9 @@
 #Admin Panel
 Ülke, İl, İlçe, Mahalle ve Semt eklemenizi sağlar.
 
+## API Collection
+https://documenter.getpostman.com/view/4871431/UVsQtjhJ
+
 
 ##Modül Gereklilikleri/Module Requirements
 - ADVS Modülü
