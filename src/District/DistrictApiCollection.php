@@ -15,6 +15,11 @@ class DistrictApiCollection extends DistrictRepository
     {
         $this->dispatch(new CheckRequiredParams(['name', 'slug', 'parent_city_id'], $params));
 
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         if (isset($params['id'])) {
             unset($params['id']);
         }
@@ -38,6 +43,11 @@ class DistrictApiCollection extends DistrictRepository
     {
         $this->dispatch(new CheckRequiredParams(['id'], $params));
 
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         $district = $this->newQuery()->find($params['id']);
 
         if (!$district) {
@@ -56,6 +66,11 @@ class DistrictApiCollection extends DistrictRepository
     public function edit(array $params)
     {
         $this->dispatch(new CheckRequiredParams(['id'], $params));
+
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
 
         if (!empty($params['parent_city_id']))
         {
@@ -85,6 +100,11 @@ class DistrictApiCollection extends DistrictRepository
 
     public function list(array $params)
     {
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         if (!empty($params['id'])) {
             $district = $this->newQuery()->find($params['id']);
 

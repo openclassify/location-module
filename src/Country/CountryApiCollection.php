@@ -14,6 +14,11 @@ class CountryApiCollection extends CountryRepository
     {
         $this->dispatch(new CheckRequiredParams(['name', 'slug', 'abv'], $params));
 
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         if (isset($params['id'])) {
             unset($params['id']);
         }
@@ -29,6 +34,11 @@ class CountryApiCollection extends CountryRepository
     public function remove(array $params)
     {
         $this->dispatch(new CheckRequiredParams(['id'], $params));
+
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
 
         $country = $this->newQuery()->find($params['id']);
 
@@ -49,6 +59,11 @@ class CountryApiCollection extends CountryRepository
     {
         $this->dispatch(new CheckRequiredParams(['id'], $params));
 
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         $params = $this->dispatch(new CreateTranslatableValues($params));
 
         $country = $this->newQuery()->find($params['id']);
@@ -67,6 +82,11 @@ class CountryApiCollection extends CountryRepository
 
     public function list(array $params)
     {
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         if (!empty($params['id'])) {
             $country = $this->newQuery()->find($params['id']);
 

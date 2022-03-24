@@ -15,6 +15,11 @@ class NeighborhoodApiCollection extends NeighborhoodRepository
     {
         $this->dispatch(new CheckRequiredParams(['name', 'slug', 'parent_district_id'], $params));
 
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         if (isset($params['id'])) {
             unset($params['id']);
         }
@@ -38,6 +43,11 @@ class NeighborhoodApiCollection extends NeighborhoodRepository
     {
         $this->dispatch(new CheckRequiredParams(['id'], $params));
 
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         $neighborhood = $this->newQuery()->find($params['id']);
 
         if (!$neighborhood) {
@@ -56,6 +66,11 @@ class NeighborhoodApiCollection extends NeighborhoodRepository
     public function edit(array $params)
     {
         $this->dispatch(new CheckRequiredParams(['id'], $params));
+
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
 
         if (!empty($params['parent_district_id']))
         {
@@ -85,6 +100,11 @@ class NeighborhoodApiCollection extends NeighborhoodRepository
 
     public function list(array $params)
     {
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         if (!empty($params['id'])) {
             $neighborhood = $this->newQuery()->find($params['id']);
 
