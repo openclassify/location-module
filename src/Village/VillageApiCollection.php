@@ -15,6 +15,11 @@ class VillageApiCollection extends VillageRepository
     {
         $this->dispatch(new CheckRequiredParams(['name', 'slug', 'parent_neighborhood_id'], $params));
 
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         if (isset($params['id'])) {
             unset($params['id']);
         }
@@ -38,6 +43,11 @@ class VillageApiCollection extends VillageRepository
     {
         $this->dispatch(new CheckRequiredParams(['id'], $params));
 
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         $village = $this->newQuery()->find($params['id']);
 
         if (!$village) {
@@ -56,6 +66,11 @@ class VillageApiCollection extends VillageRepository
     public function edit(array $params)
     {
         $this->dispatch(new CheckRequiredParams(['id'], $params));
+
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
 
         if (!empty($params['parent_neighborhood_id']))
         {
@@ -85,6 +100,11 @@ class VillageApiCollection extends VillageRepository
 
     public function list(array $params)
     {
+        if (!Auth::user()->hasRole('admin'))
+        {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         if (!empty($params['id'])) {
             $village = $this->newQuery()->find($params['id']);
 
