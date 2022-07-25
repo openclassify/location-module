@@ -51,4 +51,11 @@ class VillageRepository extends EntryRepository implements VillageRepositoryInte
     {
         return $this->newQuery()->where('parent_neighborhood_id', $neighborhood)->orderBy('order','ASC')->get();
     }
+
+    public function findAllByIDs($villageIDs) {
+        return $this->newQuery()
+            ->whereIn('location_village.id', $villageIDs)
+            ->get();
+    }
+
 }

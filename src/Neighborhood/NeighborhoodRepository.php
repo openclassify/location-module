@@ -54,4 +54,10 @@ class NeighborhoodRepository extends EntryRepository implements NeighborhoodRepo
             ->orderBy('order', 'ASC')
             ->get();
     }
+
+    public function findAllByIDs($neighborhoodIDs) {
+        return $this->newQuery()
+            ->whereIn('location_neighborhoods.id', $neighborhoodIDs)
+            ->get();
+    }
 }
