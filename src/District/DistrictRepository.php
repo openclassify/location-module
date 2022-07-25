@@ -53,4 +53,10 @@ class DistrictRepository extends EntryRepository implements DistrictRepositoryIn
             ->orderBy('order','ASC')
             ->get();
     }
+
+    public function findAllByIDs($districtIDs) {
+        return $this->newQuery()
+            ->whereIn('location_districts.id', $districtIDs)
+            ->get();
+    }
 }
