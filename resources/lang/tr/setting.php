@@ -53,4 +53,7 @@ return [
     'sorting_type' => [
         'name' => 'Sıralama Türü',
     ],
+    'show_map_when_creating_ad' => [
+        'name' => 'İlan oluşturma ekranında harita göster.',
+    ]
 ];

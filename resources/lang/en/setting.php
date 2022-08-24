@@ -53,4 +53,7 @@ return [
     'sorting_type' => [
         'name' => 'Sorting Type',
     ],
+    'show_map_when_creating_ad' => [
+        'name' => 'Show map on ad create screen.',
+    ]
 ];

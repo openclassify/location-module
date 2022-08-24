@@ -108,4 +108,10 @@ return [
             ],
         ],
     ],
+    'show_map_when_creating_ad' => [
+        'type' => 'anomaly.field_type.boolean',
+        'config' => [
+            'default_value' => true,
+        ]
+    ]
 ];
