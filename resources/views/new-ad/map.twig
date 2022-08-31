@@ -42,8 +42,7 @@
                                 {% endif %}
                             </ul>
                         </div>
-                        {% if setting_value("visiosoft.module.location::show_map_when_creating_ad") %}
-                            <div class="col-12">
+                            <div class="col-12 {% if not setting_value("visiosoft.module.location::show_map_when_creating_ad") %} d-none {% endif %}">
                                 <div id="map-canvas" style="
                                     position: relative; overflow: hidden;
                                     transform: translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px);
@@ -52,7 +51,7 @@
                                     background-color: rgb(229, 227, 223);
                                 "></div>
                             </div>
-                        {% endif %}
+
                     </div>
 
 
