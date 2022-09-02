@@ -60,4 +60,9 @@ class NeighborhoodRepository extends EntryRepository implements NeighborhoodRepo
             ->whereIn('location_neighborhoods.id', $neighborhoodIDs)
             ->get();
     }
+    public function findBySlug($neighborhoodSlug) {
+        return $this->newQuery()
+            ->where('location_neighborhoods.slug', $neighborhoodSlug)
+            ->get();
+    }
 }

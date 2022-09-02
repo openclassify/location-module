@@ -59,4 +59,9 @@ class DistrictRepository extends EntryRepository implements DistrictRepositoryIn
             ->whereIn('location_districts.id', $districtIDs)
             ->get();
     }
+    public function findBySlug($districtSlug) {
+        return $this->newQuery()
+            ->where('location_districts.slug', $districtSlug)
+            ->get();
+    }
 }
