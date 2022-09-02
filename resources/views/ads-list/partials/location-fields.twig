@@ -19,7 +19,7 @@
 {% set citySlug = null %}
 {% set pathInfo = app.request.pathinfo|split('/') %}
 {% if pathInfo|length is same as(4) %}
-    {% set citySlug = entries('location', 'cities').findBy('slug', pathInfo[3]) %}
+    {% set citySlug = entries('location', 'cities').findBy('slug', pathInfo[3]|split('-')[0]) %}
     {% set selected_cities_name = [getCity(citySlug.id).name] %}
 {% else %}
     {% set selected_cities = params.param['city'] %}
@@ -57,7 +57,7 @@
         {{ img('visiosoft.module.advs::images/listing/filter-arrow.svg').data|raw }}
     </button>
     <input name="country[]" id="listCountryFilter" type="hidden" multiple
-           value="{{ countrySlug ? countrySlug.id : params.param['country']|join(',') }}">
+           value="{{ countryValue ? countryValue.id : params.param['country']|join(',') }}">
     <!-- End country filter -->
 
     <!-- Start city filter -->
