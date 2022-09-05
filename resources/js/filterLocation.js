@@ -339,9 +339,9 @@ function searchLocationName() {
     var searchField = $("#searchLocation");
     searchField.unbind();
     searchField.on("keyup", function () {
-        var value = this.value.toLowerCase().trim();
+        var value = this.value.toLocaleLowerCase(currentLocale).trim();
         $('.filter-location-modal li').show().filter(function () {
-            return $(this).text().toLowerCase().trim().indexOf(value) == -1;
+            return $(this).text().toLocaleLowerCase(currentLocale).trim().indexOf(value) == -1;
         }).hide();
     });
 }
