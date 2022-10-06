@@ -7,6 +7,16 @@ var village;
 //Country
 $('.filter-country-btn').on('click', function () {
     var selected__country_request = $('input[name="country[]"]').val();
+    // Setting other inputs blank
+    $('input[name="city[]"]').val();
+    $('.selected-city').html(cityBlank);
+    $('input[name="district[]"]').val();
+    $('.selected-district').html(districtBlank);
+    $('input[name="neighborhood[]"]').val();
+    $('.selected-neighborhood').html(neighbourhoodBlank);
+    $('input[name="village[]"]').val();
+    $('.selected-village').html(villageBlank);
+
     if (countries == undefined) {
         var promiseForCountries = new Promise(function (resolve, reject) {
             locationCrud('', '/ajax/getCountry', 'POST', beforeSend(), function (callback) {
@@ -42,6 +52,15 @@ $('.filter-city-btn').on('click', function () {
     var countries_value = $('input[name="country[]"]').val();
     countries_value += ',' + defaultCountry
     var selected__city_request = $('input[name="city[]"]').val();
+
+    // Setting other inputs blank
+    $('input[name="district[]"]').val();
+    $('.selected-district').html(districtBlank);
+    $('input[name="neighborhood[]"]').val();
+    $('.selected-neighborhood').html(neighbourhoodBlank);
+    $('input[name="village[]"]').val();
+    $('.selected-village').html(villageBlank);
+
     if (cities == undefined || $(this).attr('data-parent') != countries_value) {
         $(this).attr('data-parent', countries_value);
         var promiseForCities = new Promise(function (resolve, reject) {
@@ -76,6 +95,14 @@ $('.filter-city-btn').on('click', function () {
 $('.filter-district-btn').on('click', function () {
     var city_value = $('input[name="city[]"]').val();
     var selected_district_request = $('input[name="district[]"]').val();
+
+    // Setting other inputs blank
+    $('input[name="neighborhood[]"]').val();
+    $('.selected-neighborhood').html(neighbourhoodBlank);
+    $('input[name="village[]"]').val();
+    $('.selected-village').html(villageBlank);
+
+
     if (districts == undefined || $(this).attr('data-parent') != city_value) {
         $(this).attr('data-parent', city_value)
         var promiseForDistricts = new Promise(function (resolve, reject) {
@@ -110,6 +137,11 @@ $('.filter-district-btn').on('click', function () {
 $('.filter-neighborhood-btn').on('click', function () {
     var district_value = $('input[name="district[]"]').val();
     var selected_neighborhood_request = $('input[name="neighborhood[]"]').val();
+
+    // Setting other inputs blank
+    $('input[name="village[]"]').val();
+    $('.selected-village').html(villageBlank);
+
     if (neighborhoods == undefined || $(this).attr('data-parent') != district_value) {
         $(this).attr('data-parent', district_value)
         var promiseForNeighborhoods = new Promise(function (resolve, reject) {
