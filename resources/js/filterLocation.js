@@ -8,13 +8,13 @@ var village;
 $('.filter-country-btn').on('click', function () {
     var selected__country_request = $('input[name="country[]"]').val();
     // Setting other inputs blank
-    $('input[name="city[]"]').val();
+    $('input[name="city[]"]').val('');
     $('.selected-city').html(cityBlank);
-    $('input[name="district[]"]').val();
+    $('input[name="district[]"]').val('');
     $('.selected-district').html(districtBlank);
-    $('input[name="neighborhood[]"]').val();
+    $('input[name="neighborhood[]"]').val('');
     $('.selected-neighborhood').html(neighbourhoodBlank);
-    $('input[name="village[]"]').val();
+    $('input[name="village[]"]').val('');
     $('.selected-village').html(villageBlank);
 
     if (countries == undefined) {
@@ -54,11 +54,11 @@ $('.filter-city-btn').on('click', function () {
     var selected__city_request = $('input[name="city[]"]').val();
 
     // Setting other inputs blank
-    $('input[name="district[]"]').val();
+    $('input[name="district[]"]').val('');
     $('.selected-district').html(districtBlank);
-    $('input[name="neighborhood[]"]').val();
+    $('input[name="neighborhood[]"]').val('');
     $('.selected-neighborhood').html(neighbourhoodBlank);
-    $('input[name="village[]"]').val();
+    $('input[name="village[]"]').val('');
     $('.selected-village').html(villageBlank);
 
     if (cities == undefined || $(this).attr('data-parent') != countries_value) {
@@ -97,9 +97,9 @@ $('.filter-district-btn').on('click', function () {
     var selected_district_request = $('input[name="district[]"]').val();
 
     // Setting other inputs blank
-    $('input[name="neighborhood[]"]').val();
+    $('input[name="neighborhood[]"]').val('');
     $('.selected-neighborhood').html(neighbourhoodBlank);
-    $('input[name="village[]"]').val();
+    $('input[name="village[]"]').val('');
     $('.selected-village').html(villageBlank);
 
 
@@ -139,7 +139,7 @@ $('.filter-neighborhood-btn').on('click', function () {
     var selected_neighborhood_request = $('input[name="neighborhood[]"]').val();
 
     // Setting other inputs blank
-    $('input[name="village[]"]').val();
+    $('input[name="village[]"]').val('');
     $('.selected-village').html(villageBlank);
 
     if (neighborhoods == undefined || $(this).attr('data-parent') != district_value) {
