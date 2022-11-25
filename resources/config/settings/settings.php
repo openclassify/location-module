@@ -26,6 +26,12 @@ return [
             'default_value' => true,
         ],
     ],
+    'store_registration_page_location' => [
+        'type' => 'anomaly.field_type.boolean',
+        'config' => [
+            'default_value' => true,
+        ],
+    ],
     'default_country' => [
         'type' => 'anomaly.field_type.relationship',
         "config" => [

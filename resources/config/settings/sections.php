@@ -10,7 +10,8 @@ return [
                     'sorting_column','sorting_type',
                     'home_page_location', 'list_page_location',
                     'detail_page_location', 'create_ad_page_location',
-                    'country_for_phone_field', 'show_map_when_creating_ad'
+                    'country_for_phone_field', 'show_map_when_creating_ad',
+                    'store_registration_page_location'
                 ],
             ],
             'map' => [
