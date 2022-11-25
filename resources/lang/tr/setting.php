@@ -55,5 +55,8 @@ return [
     ],
     'show_map_when_creating_ad' => [
         'name' => 'İlan oluşturma ekranında harita göster.',
+    ],
+    'store_registration_page_location' => [
+        'name' => 'Mağaza üyeliği ekranında harita göster.'
     ]
 ];
