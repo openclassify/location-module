@@ -14,6 +14,5 @@
         }
     },
     "require": {
-        "visiosoft/advs-module": "*"
     }
 }
