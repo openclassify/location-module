@@ -12,7 +12,7 @@
                        role="tab" data-toggle="tab">{{ trans('visiosoft.module.profile::field.my_address') }}</a>
                 </li>
             </ul>
-            <div class="tab-content bg-light">
+            <div class="tab-content">
                 <div role="tabpanel" class="tab-pane m-0 pt-2 active" id="location">
                     <div class="row">
                         <div class="col-12">
@@ -63,8 +63,8 @@
                             <tbody>
                             {% for key,adress in getAddressByUser(auth_user().id) %}
                                 <tr class="row-address{{ adress.id }}">
-                                    <td class="address-title">{{ adress.adress_name }}</td>
-                                    <td>
+                                    <td class="address-title border-top-0">{{ adress.adress_name }}</td>
+                                    <td class="border-top-0">
                                         <a class="btn btn-sm btn-info selectAddress text-white"
                                            data-id="{{ adress.id }}"
                                            role="button">
