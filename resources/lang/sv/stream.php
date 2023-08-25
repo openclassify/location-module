@@ -2,7 +2,7 @@
 
 return [
     'location' => [
-        'name' => 'Location'
+        'name' => 'Plats'
     ],
     'village' => [
         'name' => 'By',
