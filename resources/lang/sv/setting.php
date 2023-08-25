@@ -53,4 +53,10 @@ return [
     'sorting_type' => [
         'name' => 'Sorteringstyp',
     ],
+    'show_map_when_creating_ad' => [
+        'name' => 'Show map on ad create screen.',
+    ],
+    'store_registration_page_location' => [
+        'name' => 'Show map on store registration page.'
+    ]
 ];
