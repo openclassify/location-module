@@ -11,35 +11,35 @@ return [
         ],
     ],
     'countries' => [
-        'name'   => 'Countries',
+        'name'   => 'Länder',
         'option' => [
-            'read'   => 'Can read countries?',
-            'write'  => 'Can create/edit countries?',
-            'delete' => 'Can delete countries?',
+            'read'   => 'Kan läsa länder?',
+            'write'  => 'Kan skapa/redigera länder?',
+            'delete' => 'Kan man ta bort länder?',
         ],
     ],
     'cities' => [
-        'name'   => 'Cities',
+        'name'   => 'Städer',
         'option' => [
-            'read'   => 'Can read cities?',
-            'write'  => 'Can create/edit cities?',
-            'delete' => 'Can delete cities?',
+            'read'   => 'Kan läsa städer?',
+            'write'  => 'Kan skapa/redigera städer?',
+            'delete' => 'Kan man ta bort städer?',
         ],
     ],
     'districts' => [
-        'name'   => 'Districts',
+        'name'   => 'Distrikt',
         'option' => [
-            'read'   => 'Can read districts?',
-            'write'  => 'Can create/edit districts?',
-            'delete' => 'Can delete districts?',
+            'read'   => 'Kan läsa distrikt?',
+            'write'  => 'Kan skapa/redigera distrikt?',
+            'delete' => 'Kan man ta bort distrikt?',
         ],
     ],
     'neighborhoods' => [
-        'name'   => 'Neighborhoods',
+        'name'   => 'Grannskap',
         'option' => [
-            'read'   => 'Can read neighborhoods?',
-            'write'  => 'Can create/edit neighborhoods?',
-            'delete' => 'Can delete neighborhoods?',
+            'read'   => 'Kan läsa stadsdelar?',
+            'write'  => 'Kan skapa/redigera stadsdelar?',
+            'delete' => 'Kan man ta bort stadsdelar?',
         ],
     ],
 ];
