@@ -30,7 +30,7 @@ return [
     ],
 
     'google_map_key' => [
-        'name' => 'Google Maps Api Key',
+        'name' => 'Google Maps API-Key',
     ],
 
     'map_coordinates_long' => [
@@ -53,4 +53,10 @@ return [
     'sorting_type' => [
         'name' => 'Sorteringstyp',
     ],
+    'show_map_when_creating_ad' => [
+        'name' => 'Visa kartan på skärmen för att skapa annonsen.',
+    ],
+    'store_registration_page_location' => [
+        'name' => 'Visa kartan på butiksregistreringssidan.'
+    ]
 ];

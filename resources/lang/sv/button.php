@@ -5,7 +5,7 @@ return [
     'new_city' => 'Ny stad',
     'new_district' => 'Nytt distrikt',
     'new_neighborhood' => 'Nytt grannskap',
-    'new_village' => 'New Village',
+    'new_village' => 'Ny by',
     'sub_cities' => 'Understäder',
     'add_sub_cities' => 'Lägg till Sub City',
     'add_sub_districts' => 'Lägg till Sub District',
