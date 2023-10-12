@@ -46,4 +46,12 @@ class CountryRepository extends EntryRepository implements CountryRepositoryInte
             ->orderBy($orderBy, $direction)
             ->get();
     }
+
+    public function getAllowedCountriesAbv(){
+        $countryCodes = $this->newQuery()
+            ->whereNull('deleted_at')
+            ->get()
+            ->pluck('abv');
+        return $countryCodes;
+    }
 }
