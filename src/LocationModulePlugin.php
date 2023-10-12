@@ -5,12 +5,21 @@ use Visiosoft\LocationModule\City\Command\GetCities;
 use Visiosoft\LocationModule\City\Command\GetCity;
 use Visiosoft\LocationModule\Country\Command\GetCountries;
 use Visiosoft\LocationModule\Country\Command\GetCountry;
+use Visiosoft\LocationModule\Country\Contract\CountryRepositoryInterface;
 use Visiosoft\LocationModule\District\Command\GetDistrict;
 use Visiosoft\LocationModule\Neighborhood\Command\GetNeighborhood;
 use Visiosoft\LocationModule\Village\Command\GetVillage;
 
 class LocationModulePlugin extends Plugin
 {
+
+
+    protected $countryRepository;
+
+    public function __construct(CountryRepositoryInterface $countryRepository)
+    {
+        $this->countryRepository = $countryRepository;
+    }
 
     /**
      * @return array
@@ -94,6 +103,23 @@ class LocationModulePlugin extends Plugin
                     return $ad;
                 }
             ),
+
+            new \Twig_SimpleFunction(
+                'getAllowedCitiesAbv',
+                function () {
+                    return $this->countryRepository->getAllowedCountriesAbv();
+                }
+            ),
+
+            new \Twig_SimpleFunction(
+                'getDefaultCountry',
+                function () {
+                    $countryId = setting_value('visiosoft.module.location::default_country') ;
+                    $defaultCountry = $this->countryRepository->find($countryId);
+                    return $defaultCountry;
+                }
+            ),
+
         ];
     }
 }
