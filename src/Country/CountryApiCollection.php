@@ -12,7 +12,7 @@ class CountryApiCollection extends CountryRepository
 
     public function add(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['name', 'slug', 'abv'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['name', 'slug', 'abv'], $params));
 
         if (!Auth::user()->hasRole('admin'))
         {
@@ -23,7 +23,7 @@ class CountryApiCollection extends CountryRepository
             unset($params['id']);
         }
 
-        $params = $this->dispatch(new CreateTranslatableValues($params));
+        $params = $this->dispatchSync(new CreateTranslatableValues($params));
 
         return $this->newQuery()->create(array_merge([
             'created_by_id' => Auth::id(),
@@ -33,7 +33,7 @@ class CountryApiCollection extends CountryRepository
 
     public function remove(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['id'], $params));
 
         if (!Auth::user()->hasRole('admin'))
         {
@@ -57,14 +57,14 @@ class CountryApiCollection extends CountryRepository
 
     public function edit(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['id'], $params));
 
         if (!Auth::user()->hasRole('admin'))
         {
             throw new \Exception(trans('streams::message.access_denied'), 403);
         }
 
-        $params = $this->dispatch(new CreateTranslatableValues($params));
+        $params = $this->dispatchSync(new CreateTranslatableValues($params));
 
         $country = $this->newQuery()->find($params['id']);
 

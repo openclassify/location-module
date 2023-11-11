@@ -13,7 +13,7 @@ class NeighborhoodApiCollection extends NeighborhoodRepository
 
     public function add(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['name', 'slug', 'parent_district_id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['name', 'slug', 'parent_district_id'], $params));
 
         if (!Auth::user()->hasRole('admin'))
         {
@@ -31,7 +31,7 @@ class NeighborhoodApiCollection extends NeighborhoodRepository
             throw new \Exception(trans('visiosoft.module.connect::message.not_found', ['name' => 'District']), 404);
         }
 
-        $params = $this->dispatch(new CreateTranslatableValues($params));
+        $params = $this->dispatchSync(new CreateTranslatableValues($params));
 
         return $this->newQuery()->create(array_merge([
             'created_by_id' => Auth::id(),
@@ -41,7 +41,7 @@ class NeighborhoodApiCollection extends NeighborhoodRepository
 
     public function remove(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['id'], $params));
 
         if (!Auth::user()->hasRole('admin'))
         {
@@ -65,7 +65,7 @@ class NeighborhoodApiCollection extends NeighborhoodRepository
 
     public function edit(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['id'], $params));
 
         if (!Auth::user()->hasRole('admin'))
         {
@@ -82,7 +82,7 @@ class NeighborhoodApiCollection extends NeighborhoodRepository
             }
         }
 
-        $params = $this->dispatch(new CreateTranslatableValues($params));
+        $params = $this->dispatchSync(new CreateTranslatableValues($params));
 
         $neighborhood = $this->newQuery()->find($params['id']);
 

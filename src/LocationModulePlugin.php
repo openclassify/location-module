@@ -31,7 +31,7 @@ class LocationModulePlugin extends Plugin
                 'getDistrict',
                 function ($id) {
 
-                    if (!$ad = $this->dispatch(new GetDistrict($id))) {
+                    if (!$ad = $this->dispatchSync(new GetDistrict($id))) {
                         return null;
                     }
 
@@ -42,7 +42,7 @@ class LocationModulePlugin extends Plugin
                 'getNeighborhood',
                 function ($id) {
 
-                    if (!$ad = $this->dispatch(new GetNeighborhood($id))) {
+                    if (!$ad = $this->dispatchSync(new GetNeighborhood($id))) {
                         return null;
                     }
 
@@ -53,7 +53,7 @@ class LocationModulePlugin extends Plugin
                 'getCity',
                 function ($id) {
 
-                    if (!$ad = $this->dispatch(new GetCity($id))) {
+                    if (!$ad = $this->dispatchSync(new GetCity($id))) {
                         return null;
                     }
 
@@ -64,7 +64,7 @@ class LocationModulePlugin extends Plugin
                 'getCities',
                 function ($country = null) {
 
-                    if (!$ad = $this->dispatch(new GetCities($country))) {
+                    if (!$ad = $this->dispatchSync(new GetCities($country))) {
                         return null;
                     }
 
@@ -75,7 +75,7 @@ class LocationModulePlugin extends Plugin
                 'getCountry',
                 function ($id) {
 
-                    if (!$ad = $this->dispatch(new GetCountry($id))) {
+                    if (!$ad = $this->dispatchSync(new GetCountry($id))) {
                         return null;
                     }
 
@@ -86,7 +86,7 @@ class LocationModulePlugin extends Plugin
                 'getCountries',
                 function () {
 
-                    if (!$ad = $this->dispatch(new GetCountries())) {
+                    if (!$ad = $this->dispatchSync(new GetCountries())) {
                         return null;
                     }
                     return $ad;
@@ -96,7 +96,7 @@ class LocationModulePlugin extends Plugin
                 'getVillage',
                 function ($id) {
 
-                    if (!$ad = $this->dispatch(new GetVillage($id))) {
+                    if (!$ad = $this->dispatchSync(new GetVillage($id))) {
                         return null;
                     }
 
