@@ -13,7 +13,7 @@ class VillageApiCollection extends VillageRepository
 
     public function add(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['name', 'slug', 'parent_neighborhood_id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['name', 'slug', 'parent_neighborhood_id'], $params));
 
         if (!Auth::user()->hasRole('admin'))
         {
@@ -31,7 +31,7 @@ class VillageApiCollection extends VillageRepository
             throw new \Exception(trans('visiosoft.module.connect::message.not_found', ['name' => 'Neighborhood']), 404);
         }
 
-        $params = $this->dispatch(new CreateTranslatableValues($params));
+        $params = $this->dispatchSync(new CreateTranslatableValues($params));
 
         return $this->newQuery()->create(array_merge([
             'created_by_id' => Auth::id(),
@@ -41,7 +41,7 @@ class VillageApiCollection extends VillageRepository
 
     public function remove(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['id'], $params));
 
         if (!Auth::user()->hasRole('admin'))
         {
@@ -65,7 +65,7 @@ class VillageApiCollection extends VillageRepository
 
     public function edit(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['id'], $params));
 
         if (!Auth::user()->hasRole('admin'))
         {
@@ -82,7 +82,7 @@ class VillageApiCollection extends VillageRepository
             }
         }
 
-        $params = $this->dispatch(new CreateTranslatableValues($params));
+        $params = $this->dispatchSync(new CreateTranslatableValues($params));
 
         $village = $this->newQuery()->find($params['id']);
 
