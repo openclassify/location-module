@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\ArgvInput;
-use Visiosoft\AdvsModule\Category\CategorySeeder;
 
 class LocationModuleSeeder extends Seeder
 {
