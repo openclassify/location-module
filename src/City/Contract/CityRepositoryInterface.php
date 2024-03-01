@@ -9,4 +9,6 @@ interface CityRepositoryInterface extends EntryRepositoryInterface
     public function getCitiesByCountryId($country_id);
 
     public function findAllByIDs($citiesIDs);
+
+    public function getCitiesApi($countryId);
 }

@@ -75,6 +75,12 @@ class LocationModuleServiceProvider extends AddonServiceProvider
             'as' => 'visiosoft.module.location::api_find_location',
             'uses' => 'Visiosoft\LocationModule\Http\Controller\AjaxController@findLocation'
         ],
+
+        // API LİST
+        'api/location/cities' => [
+            'verb' => 'GET',
+            'uses' => 'Visiosoft\LocationModule\Http\Controller\ApiController@cities'
+        ],
     ];
 
     protected $bindings = [
