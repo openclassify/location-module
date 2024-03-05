@@ -59,7 +59,7 @@ class CityRepository extends EntryRepository implements CityRepositoryInterface
             ->get();
     }
 
-    public function getCitiesApi($countryId = null)
+    public function getCitiesApi($countryId = null, $limit = null)
     {
         $query = $this->newQuery();
 
@@ -68,6 +68,6 @@ class CityRepository extends EntryRepository implements CityRepositoryInterface
         }
 
         return $query->select('location_cities.id', 'name')
-            ->paginate(config('streams::system.per_page', 7));
+            ->paginate($limit ?? config('streams::system.per_page', 7));
     }
 }

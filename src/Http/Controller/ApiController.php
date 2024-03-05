@@ -15,8 +15,9 @@ class ApiController extends ResourceController
     public function cities(CityRepositoryInterface $cities)
     {
         try {
+            $limit = $this->request->has('limit') ? $this->request->get('limit') : null;
             $countryId = $this->request->has('country') ? $this->request->get('country') : null;
-            $entries = $cities->getCitiesApi($countryId);
+            $entries = $cities->getCitiesApi($countryId, $limit);
 
             $schema = $this->responseSchema;
             $schema['response'] = $entries;
