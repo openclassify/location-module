@@ -44,16 +44,30 @@ class CityRepository extends EntryRepository implements CityRepositoryInterface
             ->get();
     }
 
-    public function getCitiesByCountryId($country_id) {
+    public function getCitiesByCountryId($country_id)
+    {
         return $this->newQuery()
             ->where('parent_country_id', $country_id)
-            ->orderBy('order','ASC')
+            ->orderBy('order', 'ASC')
             ->get();
     }
 
-    public function findAllByIDs($citiesIDs) {
+    public function findAllByIDs($citiesIDs)
+    {
         return $this->newQuery()
             ->whereIn('location_cities.id', $citiesIDs)
             ->get();
+    }
+
+    public function getCitiesApi($countryId = null, $limit = null)
+    {
+        $query = $this->newQuery();
+
+        if ($countryId) {
+            $query = $query->where('parent_country_id', $countryId);
+        }
+
+        return $query->select('location_cities.id', 'name')
+            ->paginate($limit ?? config('streams::system.per_page', 7));
     }
 }
