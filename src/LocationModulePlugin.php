@@ -27,7 +27,7 @@ class LocationModulePlugin extends Plugin
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getDistrict',
                 function ($id) {
 
@@ -38,7 +38,7 @@ class LocationModulePlugin extends Plugin
                     return $ad;
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getNeighborhood',
                 function ($id) {
 
@@ -49,7 +49,7 @@ class LocationModulePlugin extends Plugin
                     return $ad;
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getCity',
                 function ($id) {
 
@@ -60,7 +60,7 @@ class LocationModulePlugin extends Plugin
                     return $ad;
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getCities',
                 function ($country = null) {
 
@@ -71,7 +71,7 @@ class LocationModulePlugin extends Plugin
                     return $ad;
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getCountry',
                 function ($id) {
 
@@ -82,7 +82,7 @@ class LocationModulePlugin extends Plugin
                     return $ad;
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getCountries',
                 function () {
 
@@ -92,7 +92,7 @@ class LocationModulePlugin extends Plugin
                     return $ad;
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getVillage',
                 function ($id) {
 
@@ -104,14 +104,14 @@ class LocationModulePlugin extends Plugin
                 }
             ),
 
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getAllowedCitiesAbv',
                 function () {
                     return $this->countryRepository->getAllowedCountriesAbv();
                 }
             ),
 
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getDefaultCountry',
                 function () {
                     $countryId = setting_value('visiosoft.module.location::default_country') ;
